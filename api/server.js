@@ -36,7 +36,7 @@ const cors = require("cors");
 server.use(express.json())
 server.use('/api/', UsersRouter)
 server.use('/api/auth', AuthRouter)
-server.use(cors(corsOptions));
+server.use(cors());
 
 
 module.exports = server;
