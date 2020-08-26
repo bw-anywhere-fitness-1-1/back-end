@@ -57,9 +57,6 @@ router.get('/classes/:id', restricted,(req,res)=>{
 })
 
 
-
-
-
 // Create a new class 
 
 router.post('/classes',  restricted, userRestricted,  (req, res)=>{
