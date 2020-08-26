@@ -32,11 +32,11 @@ const cors = require("cors");
 //     next();
 //   });
   
-
+server.use(cors());
 server.use(express.json())
 server.use('/api/', UsersRouter)
 server.use('/api/auth', AuthRouter)
-server.use(cors(corsOptions));
+
 
 
 module.exports = server;
