@@ -18,15 +18,15 @@ const cors = require("cors");
 // }
 
 
-const corsMiddleWare = (req , res, next) => {
+// const corsMiddleWare = (req , res, next) => {
     
-    res.header("Access-Control-Allow-Origin", "*")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-    next();
+//     res.header("Access-Control-Allow-Origin", "*")
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+//     next();
     
-    }
+//     }
 
-// server.use(function(req, res, next) {
+// // server.use(function(req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
@@ -34,8 +34,8 @@ const corsMiddleWare = (req , res, next) => {
   
 
 server.use(express.json())
-server.use('/api/', corsMiddleWare, UsersRouter)
-server.use('/api/auth', corsMiddleWare , AuthRouter)
+server.use('/api/', UsersRouter)
+server.use('/api/auth', AuthRouter)
 server.use(cors(corsOptions));
 
 
