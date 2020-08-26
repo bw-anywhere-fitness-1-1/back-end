@@ -6,7 +6,7 @@ const cors = require("cors");
 
 
 
-var whitelist = ['https://front-end-snowy-rho.vercel.app/']
+var whitelist = ['https://front-end-snowy-rho.vercel.app/', 'http://localhost:3000']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
