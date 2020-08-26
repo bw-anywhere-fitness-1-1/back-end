@@ -18,18 +18,25 @@ const cors = require("cors");
 // }
 
 
-server.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+const corsMiddleWare = (req , res, next) => {
+    
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next();
-  });
+    
+    }
+
+// server.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
   
 
 server.use(express.json())
-server.use('/api/', UsersRouter)
-server.use('/api/auth', AuthRouter)
+server.use('/api/', corsMiddleWare, UsersRouter)
+server.use('/api/auth', corsMiddleWare , AuthRouter)
 server.use(cors(corsOptions));
-
 
 
 module.exports = server;
