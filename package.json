@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "fitness-anywhere",
   "main": "index.js",
+  "engines": {
+    "node" : "v12.16.3"
+  },
   "scripts": {
     "test": "jest --watch",
     "start": "node index.js",
