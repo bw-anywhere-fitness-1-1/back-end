@@ -3,7 +3,7 @@ exports.up = function (knex) {
     .createTable("userTypes", (tbl) => {
       tbl.increments();
       tbl.string("type_name", 128).notNullable().unique();
-      tbl.decimal("authCodeForUser").notNullable();
+      tbl.string("authCodeForUser").notNullable();
     })
     .createTable("intensityLevels", (tbl) => {
       tbl.increments();
@@ -16,8 +16,8 @@ exports.up = function (knex) {
       tbl.string("name", 128);
       tbl.string("email", 12);
       tbl
-        .integer("authCode")
-        .defaultTo(111)
+        .string("authCode")
+        .defaultTo('1')
         .unsigned()
         .references("userTypes.authCodeForUser");
     })
@@ -38,23 +38,6 @@ exports.up = function (knex) {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
     })
-    // .createTable("clients", (tbl) => {
-    //   tbl.increments();
-    //   tbl
-    //     .integer("userId")
-    //     .unsigned()
-    //     .notNullable()
-    //     .references("users.id")
-    //     .onUpdate("CASCADE")
-    //     .onDelete("CASCADE");
-    //   tbl
-    //     .integer("userTypeId")
-    //     .unsigned()
-    //     .notNullable()
-    //     .references("users.userType")
-    //     .onUpdate("CASCADE")
-    //     .onDelete("CASCADE");
-    // })
     .createTable("classes", (tbl) => {
       tbl.increments();
       tbl.string("name", 128).notNullable();
