@@ -4,8 +4,8 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('userTypes').insert([
-        {type_name: 'Client', authCodeForUser: 111},
-        {type_name: 'Instructor', authCodeForUser: 222},
+        {type_name: 'Client', authCodeForUser: '1'},
+        {type_name: 'Instructor', authCodeForUser: '2'},
       ]);
     });
 };
